@@ -1,18 +1,19 @@
-from machine import Pin
+from machine import Pin, ADC
 from time import sleep
+refl_sens = ADC(Pin(26))
+volt = 3.3
+max_range = 65335.0
+set_point = 3.1
 
-refl_sens = Pin(14, Pin.IN)
-
-def detect_light():  #funktionen dektektere om sensor kører på en lys overflade
+def detect_light():  #funktionen dektektere om sensor kører på en lys overflade eller sort
     while True:
-        if refl_sens == 0:
+        refl_value = refl_sens.read_u16()
+        voltage_value = refl_value * (volt / max_range)
+        if voltage_value >= set_point:
+            return voltage_value
+        elif voltage_value <= set_point:
+            return voltage_value
 
-
-
-
-def detect_dark_line():  #funktionen dektektere om sensor kører på en sort overfalde/linje
-    while True:
-        if refl_sens == 1:
 
 
 
