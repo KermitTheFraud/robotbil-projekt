@@ -1,9 +1,8 @@
 from machine import Pin, ADC
-from time import sleep
-refl_sens = ADC(Pin(26))
+refl_sens = ADC(Pin(27))
 volt = 3.3
 max_range = 65335.0
-set_point = 3.1
+set_point = 2.6
 
 def detect_light():  #funktionen dektektere om sensor kører på en lys overflade eller sort
     while True:
@@ -13,9 +12,3 @@ def detect_light():  #funktionen dektektere om sensor kører på en lys overflad
             return voltage_value
         elif voltage_value <= set_point:
             return voltage_value
-
-
-
-
-
-

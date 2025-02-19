@@ -33,7 +33,7 @@ def stop_motor(): #Denne funktion stopper motoren
 def stop_rotate_motor_right():
     setDutyPercent(left_motor_tilbage, 0)
     setDutyPercent(right_motor_frem, 0)
-    setDutyPercent(left_motor_frem, 23.8)
+    setDutyPercent(left_motor_frem, 28.3)
     setDutyPercent(right_motor_tilbage, 30)
     sleep(0.1)
     setDutyPercent(left_motor_frem, 0)
@@ -43,7 +43,7 @@ def stop_rotate_motor_right():
 def stop_rotate_motor_left():
     setDutyPercent(left_motor_frem, 0)
     setDutyPercent(right_motor_tilbage, 0)
-    setDutyPercent(left_motor_tilbage, 23.8)
+    setDutyPercent(left_motor_tilbage, 28.3)
     setDutyPercent(right_motor_frem, 30)
     sleep(0.1)
     setDutyPercent(left_motor_tilbage, 0)
@@ -53,48 +53,68 @@ def stop_rotate_motor_left():
 def speed_up(): #Denne funktion accelerere motoren
     setDutyPercent(left_motor_tilbage, 0)
     setDutyPercent(right_motor_tilbage, 0)
-    setDutyPercent(left_motor_frem, 53.8)
-    setDutyPercent(right_motor_frem, 60)
-    sleep(0.1)
+    setDutyPercent(left_motor_frem, 38.3)
+    setDutyPercent(right_motor_frem, 40)
 
 def slow_down(): #Denne funktion sænker hastigheden af motoren
     setDutyPercent(left_motor_frem, 0)
     setDutyPercent(right_motor_frem, 0)
-    setDutyPercent(left_motor_tilbage, 53.8)
-    setDutyPercent(right_motor_tilbage, 60)
+    setDutyPercent(left_motor_tilbage, 28.3)
+    setDutyPercent(right_motor_tilbage, 30)
     sleep(0.2)
-    setDutyPercent(left_motor_frem, 23.8)
+    setDutyPercent(left_motor_tilbage, 0)
+    setDutyPercent(right_motor_tilbage, 0)
+    setDutyPercent(left_motor_frem, 28.3)
     setDutyPercent(right_motor_frem, 30)
     sleep(0.1)
 
 def driveBackFast(): #Denne funktion får motoren til at kører baglæns
     setDutyPercent(left_motor_frem, 0)
     setDutyPercent(right_motor_frem, 0)
-    setDutyPercent(left_motor_tilbage, 53.8)
-    setDutyPercent(right_motor_tilbage, 60)
-    sleep(0.1)
-
+    setDutyPercent(left_motor_tilbage, 38.3)
+    setDutyPercent(right_motor_tilbage, 40)
 def driveBackSlow():
     setDutyPercent(left_motor_frem, 0)
     setDutyPercent(right_motor_frem, 0)
-    setDutyPercent(left_motor_tilbage, 23.8)
+    setDutyPercent(left_motor_tilbage, 28.3)
     setDutyPercent(right_motor_tilbage, 30)
-    sleep(0.1)
 
-def motorBrems():
-    setDutyPercent(left_motor_frem, 0)
-    setDutyPercent(right_motor_frem, 0)
-    setDutyPercent(left_motor_tilbage, 53.8)
-    setDutyPercent(right_motor_tilbage, 60)
-    sleep(0.1)
+def wallDrive():
     setDutyPercent(left_motor_tilbage, 0)
     setDutyPercent(right_motor_tilbage, 0)
+    setDutyPercent(left_motor_frem, 33.3)
+    setDutyPercent(right_motor_frem, 35)
 
+def turn_right(closerVal):
+    setDutyPercent(left_motor_frem, 33.3 + closerVal)
 
-#def turn_left(): #Denne funktion får motoren til at dreje til venstre
+def turn_left(fartherVal):
+    setDutyPercent(right_motor_frem, 40 + fartherVal)
 
-#def turn_right(): #Denne funktion får motoren til at deje til højre
+def wallFindR():
+    setDutyPercent(left_motor_tilbage, 0)
+    setDutyPercent(right_motor_frem, 0)
+    setDutyPercent(left_motor_frem, 28.3)
+    setDutyPercent(right_motor_tilbage, 30)
+    sleep(0.1)
+    setDutyPercent(left_motor_frem, 0)
+    setDutyPercent(right_motor_tilbage, 0)
+    sleep(0.1)
 
-#def rotate_right(): #Denne funktion får motoren til at kører i ring fra højre side
+def wallFindL():
+    setDutyPercent(left_motor_frem, 0)
+    setDutyPercent(right_motor_tilbage, 0)
+    setDutyPercent(left_motor_tilbage, 28.3)
+    setDutyPercent(right_motor_frem, 30)
 
-#def rotate_left():
+def leftWallLook():
+    setDutyPercent(left_motor_tilbage, 0)
+    setDutyPercent(right_motor_tilbage, 0)
+    setDutyPercent(left_motor_frem, 40)
+    setDutyPercent(right_motor_frem, 27)
+
+def sharpLeft(exponent):
+    setDutyPercent(left_motor_tilbage, 0)
+    setDutyPercent(right_motor_tilbage, 0)
+    setDutyPercent(left_motor_frem, 28.3)
+    setDutyPercent(right_motor_frem, 40 + exponent)
